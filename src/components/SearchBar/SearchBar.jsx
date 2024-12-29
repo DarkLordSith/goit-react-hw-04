@@ -23,16 +23,19 @@ const SearchBar = ({ onSubmit }) => {
 
   return (
     <header className={s.searchBar}>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          <HiOutlineSearch />
-        </button>
-        <input
-          type="text"
-          placeholder="Search images and photos"
-          value={query}
-          onChange={handleChange}
-        />
+      <form onSubmit={handleSubmit} className={s.searchForm}>
+        <div className={s.inputWrapper}>
+          <button type="submit" className={s.button}>
+            <HiOutlineSearch size={20} />
+          </button>
+          <input
+            type="text"
+            className={s.input}
+            placeholder="Search images and photos"
+            value={query}
+            onChange={handleChange}
+          />
+        </div>
       </form>
     </header>
   );
