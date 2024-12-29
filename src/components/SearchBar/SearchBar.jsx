@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import toast from "react-hot-toast";
 import s from "./SearchBar.module.css";
 import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
+import toast, { Toaster } from "react-hot-toast";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
@@ -17,12 +17,13 @@ const SearchBar = ({ onSubmit }) => {
       toast.error("Please enter a search term!");
       return;
     }
-    onSubmit(query.trim());
+    onSubmit(query);
     setQuery("");
   };
 
   return (
     <header className={s.searchBar}>
+      <Toaster position="top-right" reverseOrder={false} />
       <form onSubmit={handleSubmit} className={s.searchForm}>
         <div className={s.inputWrapper}>
           <button type="submit" className={s.button}>
